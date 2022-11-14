@@ -1,0 +1,87 @@
+﻿@model IEnumerable<TwoibiCSharpDevChallengeByHeltonFurau.Models.Country>
+
+<div class="text-center">
+    <h1 class="display-4">2ibi C# Developer Challenge by Helton Furau</h1>
+
+    <div class="row">
+        <div class="action">
+            <span>Exportar Tabela Para:</span>
+            <button class="btn btn-success">XLS</button>
+            <button class="btn btn-info">CSV</button>
+            <button class="btn btn-primary">XML</button>
+        </div>
+        <div class="table-responsive">
+            <table class="table" id="countriesTable">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Nome nativo</th>
+                        <th scope="col">Capital</th>
+                        <th scope="col">Região</th>
+                        <th scope="col">Sub-Região</th>
+                        <th scope="col">População</th>
+                        <th scope="col">Área</th>
+                        <th scope="col">Fuso horário</th>
+                        <th scope="col">Fronteiras</th>
+                        <th scope="col">Bandeira</th>
+                        <th scope="col">Mapa</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @{
+                        foreach (var country in Model)
+                        {
+                            <tr>
+                                <td>@country.Name.Common</td>
+                                <td>@country.Name.Official</td>
+                                <td>
+                                    @if (country.Capital != null)
+                                    {
+                                        @foreach (string capital in country.Capital)
+                                        {
+                                            <span class="badge bg-success">@capital</span>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-warning">Sem Capital</span>
+                                    }
+                                </td>
+                                <td>@country.Region</td>
+                                <td>@country.Subregion</td>
+                                <td>@country.Population.ToString("n0")</td>
+                                <td>@country.Area.ToString("n0")Km<sup>2</sup></td>
+                                <td>
+                                    @if (country.Timezones != null)
+                                    {
+                                        @foreach (string timezone in country.Timezones)
+                                        {
+                                            <span class="badge bg-primary">@timezone</span>
+                                        }
+                                    }
+                                </td>
+                                <td>
+                                    @if (country.Borders != null)
+                                    {
+                                        @foreach (string border in country.Borders)
+                                        {
+                                            <span class="badge bg-secondary">@border</span>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-warning">Sem Fronteiras</span>
+                                    }
+                                </td>
+                                <th scope="col"><a href="@country.Flags.Png">Ver bandeira</a></th>
+                                <th scope="col"><a href="@country.Maps.GoogleMaps">Ver mapa</a></th>
+                            </tr>
+                        }
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
