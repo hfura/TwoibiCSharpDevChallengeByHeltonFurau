@@ -8,9 +8,9 @@ O presente repositorio apresenta um Cliente REST C# (asp.net) que consome a API 
 - Microsoft Visual Studio 2022
 
 ### Funcionalidades:
-–[x] Ver todos os países
-–[x] Ver bandeira ou mapa de cada país
-–[x] Exportar as informações dos países para os formatos XLS, CSV e XML
+- Ver todos os países
+- Ver bandeira ou mapa de cada país
+- Exportar as informações dos países para os formatos XLS, CSV e XML
 
 Disponivel em: https://twoibicsharpdevchallengebyheltonfurau.azurewebsites.net/
 
